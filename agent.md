@@ -1,0 +1,5 @@
+# Project Rules (AGENTS.md)
+- Stack: Vite + React 19 + TypeScript (no any)
+- UI: Use ONLY components from @/components/ui/
+- Styling: Tailwind CSS utility classes
+- Icons: Use lucide-react exclusively
