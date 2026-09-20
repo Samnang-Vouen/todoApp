@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { ListTodo, ShoppingBag, ShoppingCart, Users } from "lucide-react";
+import { ListTodo, SearchIcon, ShoppingBag, ShoppingCart, Users } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { cn } from "@/lib/utils";
 
@@ -7,6 +7,7 @@ const links = [
   { to: "/todos", label: "Todos", icon: ListTodo },
   { to: "/users", label: "Users", icon: Users },
   { to: "/shop", label: "Shop", icon: ShoppingBag },
+  { to: "/search", label: "Search", icon: SearchIcon },
 ];
 
 export function Nav() {

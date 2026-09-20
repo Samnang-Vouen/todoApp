@@ -7,6 +7,7 @@ import { UserDirectory } from "@/pages/UserDirectory";
 import { UserDetail } from "@/pages/UserDetail";
 import { Shop } from "@/pages/Shop";
 import { Checkout } from "@/pages/Checkout";
+import { Search } from "@/pages/Search";
 import { NotFound } from "@/pages/NotFound";
 
 export default function App() {
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/users/:id" element={<UserDetail />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/search" element={<Search />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

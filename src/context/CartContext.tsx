@@ -1,4 +1,7 @@
-import { createContext, useContext, useMemo, useReducer, type Dispatch, type ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useReducer, type Dispatch, type ReactNode } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+
+const CART_STORAGE_KEY = "todoapp.cart";
 
 export interface CartItem {
   id: string;
@@ -48,7 +51,12 @@ interface CartContextValue {
 const CartContext = createContext<CartContextValue | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [items, dispatch] = useReducer(cartReducer, []);
+  const [storedItems, setStoredItems] = useLocalStorage<CartItem[]>(CART_STORAGE_KEY, []);
+  const [items, dispatch] = useReducer(cartReducer, storedItems);
+
+  useEffect(() => {
+    setStoredItems(items);
+  }, [items, setStoredItems]);
 
   const total = useMemo(
     () => items.reduce((sum, item) => sum + item.price * item.quantity, 0),
